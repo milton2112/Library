@@ -1,18 +1,21 @@
 const myLibrary = [];
 
 
-function Book(title, author, pages, read) {
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book {
+
+  constructor(title, author, pages, read) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  toggleRead() {
+    this.read = !this.read;
+  }
+
 }
-
-
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-};
 
 
 function addBookToLibrary(title, author, pages, read) {
@@ -98,6 +101,7 @@ document.getElementById("bookForm").addEventListener("submit", function (e) {
 });
 
 
+// LIBROS DE EJEMPLO
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 addBookToLibrary("Dune", "Frank Herbert", 604, true);
