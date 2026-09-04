@@ -1,34 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <title>Library</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+    <title>Library</title>
 
-<body>
+    <link rel="stylesheet" href="style.css" />
 
-<h1>My Library</h1>
+    <script src="script.js" defer></script>
+  </head>
 
-<button id="newBookBtn">New Book</button>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <h1>My Library</h1>
+          <p>Keep track of the books you have read and want to read.</p>
+        </div>
 
-<form id="bookForm">
-  <input type="text" id="title" placeholder="Title" required>
-  <input type="text" id="author" placeholder="Author" required>
-  <input type="number" id="pages" placeholder="Pages" required>
+        <button id="newBookBtn" type="button">New Book</button>
+      </header>
 
-  <label>
-    Read
-    <input type="checkbox" id="read">
-  </label>
+      <section class="form-section">
+        <h2>Add a Book</h2>
 
-  <button type="submit">Add Book</button>
-</form>
+        <form id="bookForm" novalidate>
+          <div class="form-group">
+            <label for="title">Title</label>
 
-<div id="library"></div>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="The Hobbit"
+              required
+            />
 
-<script src="script.js"></script>
+            <span
+              id="title-error"
+              class="error-message"
+              aria-live="polite"
+            ></span>
+          </div>
 
-</body>
+          <div class="form-group">
+            <label for="author">Author</label>
+
+            <input
+              type="text"
+              id="author"
+              name="author"
+              placeholder="J.R.R. Tolkien"
+              required
+            />
+
+            <span
+              id="author-error"
+              class="error-message"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <div class="form-group">
+            <label for="pages">Pages</label>
+
+            <input
+              type="number"
+              id="pages"
+              name="pages"
+              placeholder="295"
+              min="1"
+              required
+            />
+
+            <span
+              id="pages-error"
+              class="error-message"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <div class="checkbox-group">
+            <label for="read">
+              <input type="checkbox" id="read" name="read" />
+
+              I have read this book
+            </label>
+          </div>
+
+          <button class="add-book-button" type="submit">Add Book</button>
+
+          <p id="form-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>Your Books</h2>
+
+        <div id="library" class="library"></div>
+      </section>
+    </main>
+  </body>
 </html>
